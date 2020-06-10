@@ -20,8 +20,8 @@ pipeline {
             agent none 
             steps {
                 sh 'docker build -t web-app .'
-                }          
-            }
+            }          
+            
         }
     }
 }
