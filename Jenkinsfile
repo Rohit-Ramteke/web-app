@@ -15,11 +15,14 @@ pipeline {
             steps {
                 sh 'mvn test' 
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-            }   }
-
+        }
+        stage('Building image') {
+            agent none 
+            steps {
+                script {
+                    docker.build registry + ":$BUILD_NUMBER"
+                }          
+            }
         }
     }
 }
