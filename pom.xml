@@ -5,8 +5,10 @@
   <artifactId>web-app</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>web-app Maven Webapp</name>
+  <name>web-app</name>
   <url>http://maven.apache.org</url>
+
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,7 +17,21 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.0.0-M4</version>
+      </plugin>
+    </plugins>
+  </reporting>
+
   <build>
     <finalName>web-app</finalName>
   </build>
+
+
 </project>
