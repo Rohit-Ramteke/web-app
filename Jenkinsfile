@@ -1,6 +1,5 @@
 pipeline {
     agent none
-
     stages {
         stage('Build') {
             agent {
@@ -8,6 +7,9 @@ pipeline {
                     image 'maven:3-alpine'
                     args '-v /$HOME/.m2:/$HOME/.m2'
                 }
+            }
+            steps {
+                sh 'mvn package'
             }
         }
         stage('Building image') {
