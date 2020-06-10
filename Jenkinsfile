@@ -19,8 +19,7 @@ pipeline {
         stage('Building image') {
             agent none 
             steps {
-                script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                sh 'docker build -t web-app .'
                 }          
             }
         }
