@@ -24,9 +24,12 @@ pipeline {
                 label masternode
             }
             steps {
-                sh 'docker build -t web-app:"$BUILD_NUMBER" .'
+                script {
+                    docker.build registry + ":$BUILD_NUMBER"
+                }
             }          
             
         }
+
     }
 }
