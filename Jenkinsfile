@@ -1,6 +1,6 @@
 
 masternode = 'master'
-
+ 
 pipeline {
     environment {
         registry = "rohit965/web-app"
