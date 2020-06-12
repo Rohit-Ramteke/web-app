@@ -1,10 +1,12 @@
 
+#Assinging label 'master' to masternode
 masternode = 'master'
  
 pipeline {
     environment {
         registry = "rohit965/web-app"
         registryCredential = "dockerhub"
+        dockerImage = ''
     }
     agent none
     stages {
@@ -25,10 +27,23 @@ pipeline {
             }
             steps {
                 script {
-                    docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }          
             
+        }
+        stage('Pushing Image to DockerHub') {
+            agent {
+                label masternode
+            }
+            steps {
+                script {
+                    docker.withRegistry( '', registryCredential ) {
+                        dockerImage.push()
+                    }
+                }
+            }
+
         }
 
     }
