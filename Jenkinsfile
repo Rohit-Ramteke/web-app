@@ -8,11 +8,6 @@ pipeline {
     }
     agent none
     stages {
-        stage('Cloning Git') {
-            steps {
-                 git 'https://github.com/Rohit-Ramteke/web-app.git'
-             }
-        }
         stage('Build') {
             agent {
                 docker {
