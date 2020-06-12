@@ -1,6 +1,11 @@
+
 masternode = 'master'
 
 pipeline {
+    environment {
+        registry = "rohit965/web-app"
+        registryCredential = "dockerhub"
+    }
     agent none
     stages {
         stage('Build') {
@@ -19,7 +24,7 @@ pipeline {
                 label masternode
             }
             steps {
-                sh 'docker build -t web-app .'
+                sh 'docker build -t web-app:"$BUILD_NUMBER" .'
             }          
             
         }
