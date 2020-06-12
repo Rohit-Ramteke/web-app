@@ -43,6 +43,17 @@ pipeline {
             }
 
         }
+        stage('Deployement') {
+            agent {
+                label masternode
+            }
+            steps {
+                script {
+                    sh 'ssh ubuntu@10.128.0.35'
+                    sh 'whoami'
+                }
+            }
+        }
 
     }
 }
