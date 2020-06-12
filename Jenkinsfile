@@ -13,6 +13,9 @@ pipeline {
             }
         }
         stage('Building image') {
+            agent {
+                label master
+            }
             steps {
                 sh 'docker build -t web-app .'
             }          
