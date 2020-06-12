@@ -1,5 +1,4 @@
 
-#Assinging label 'master' to masternode
 masternode = 'master'
  
 pipeline {
