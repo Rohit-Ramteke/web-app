@@ -1,3 +1,5 @@
+masternode = 'master'
+
 pipeline {
     agent none
     stages {
@@ -14,7 +16,7 @@ pipeline {
         }
         stage('Building image') {
             agent {
-                label master
+                label masternode
             }
             steps {
                 sh 'docker build -t web-app .'
