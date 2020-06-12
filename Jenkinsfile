@@ -1,8 +1,7 @@
-
-masternode = 'master'
  
 pipeline {
     environment {
+        masternode = 'master'
         registry = "rohit965/web-app"
         registryCredential = "dockerhub"
         dockerImage = ''
